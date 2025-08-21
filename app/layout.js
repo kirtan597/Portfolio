@@ -1,11 +1,11 @@
 import './globals.css';
-import type { Metadata } from 'next';
+
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
+export const metadata = {
   metadataBase: new URL('https://kirtankumar-portfolio.vercel.app'),
   title: 'Panchal Kirtankumar - Software Developer & AI Enthusiast',
   description: 'Professional portfolio of Panchal Kirtankumar Prakashbhai - B.Tech CSE (AIML) student at Rai University, Ahmedabad. Specializing in full-stack web development, AI/ML, and modern software solutions.',
@@ -37,11 +37,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} antialiased`}>

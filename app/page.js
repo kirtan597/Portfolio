@@ -118,7 +118,7 @@ export default function Portfolio() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       const offsetTop = element.offsetTop - 80; // Account for fixed navbar
@@ -238,7 +238,7 @@ export default function Portfolio() {
   ];
 
   // Component for animated sections
-  const AnimatedSection = React.memo(({ children, className = "" }: { children: React.ReactNode, className?: string }) => {
+  const AnimatedSection = React.memo(({ children, className = "" }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
     
@@ -265,14 +265,14 @@ export default function Portfolio() {
       message: ''
     });
     const [localSubmitting, setLocalSubmitting] = React.useState(false);
-    const [localStatus, setLocalStatus] = React.useState<'idle' | 'success' | 'error'>('idle');
+    const [localStatus, setLocalStatus] = React.useState('idle');
 
-    const handleLocalChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleLocalChange = React.useCallback((e) => {
       const { name, value } = e.target;
       setLocalFormData(prev => ({ ...prev, [name]: value }));
     }, []);
 
-    const handleLocalSubmit = React.useCallback(async (e: React.FormEvent) => {
+    const handleLocalSubmit = React.useCallback(async (e) => {
       e.preventDefault();
       setLocalSubmitting(true);
       setLocalStatus('idle');
